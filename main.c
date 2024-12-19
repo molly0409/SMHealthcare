@@ -18,6 +18,7 @@
 #define HEALTHFILEPATH "health_data.txt"
 
 static int choice;
+int total_duration[MAX_EXERCISES]={0};
 
 int main() {
 	

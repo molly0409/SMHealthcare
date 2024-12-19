@@ -23,6 +23,7 @@
     			2. save the chosen diet and total calories intake 
     			3. save the total remaining calrories
 */
+extern int total_duration[MAX_EXERCISES];
 
 void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 	int i;
@@ -34,8 +35,12 @@ void saveData(const char* HEALTHFILEPATH, const HealthData* health_data) {
 
     // ToCode: to save the chosen exercise and total calories burned 
     fprintf(file, "[Exercises] \n");
-    
-    
+    for(i=0;i<health_data->exercise_count;i++) 
+	{
+        fprintf(file, "%s - %d kcal\n",
+                health_data->exercises[i].exercise_name,
+                health_data->exercises[i].calories_burned_per_minute * total_duration[i]);
+	}
     // ToCode: to save the chosen diet and total calories intake 
     fprintf(file, "\n[Diets] \n");
 
