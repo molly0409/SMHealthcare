@@ -27,9 +27,6 @@ static int diet_list_size = 0;
 */
 
 void loadDiets(const char* DIETFILEPATH) {
-    
-    int count=0;
-    int i=0;
 	
 	FILE *file = fopen(DIETFILEPATH, "r");
     if (file == NULL) {
@@ -48,10 +45,6 @@ void loadDiets(const char* DIETFILEPATH) {
     }
     fclose(file);
     
-    for (i=0;i<diet_list_size;i++) 
-    {
-        printf("문자: %s, 정수: %d\n", diet_list[i].food_name, diet_list[i].calories_intake);
-	}
 }
 
 /*
@@ -69,6 +62,11 @@ void inputDiet(HealthData* health_data) {
     // ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
     
+	for (i=0;i<diet_list_size;i++)
+	{
+		printf("%i. %s\n",i+1,diet_list[i].food_name);
+	}
+	printf("%d. Exit\n",diet_list_size);
     
 	// ToCode: to enter the diet to be chosen with exit option
     

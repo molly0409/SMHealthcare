@@ -21,15 +21,12 @@
 static Exercise exercise_list[MAX_EXERCISES];
 int exercise_list_size = 0;
 //declare the structure of exercise tatal data
-
+int total_duration[MAX_EXERCISES]={0};
 /*
     description : read the information in "excercises.txt"
 */
 
 void loadExercises(const char* EXERCISEFILEPATH) {
-    
-    int count=0;
-    int i=0;
 	
 	FILE *file = fopen(EXERCISEFILEPATH, "r");
     if (file == NULL) {
@@ -39,23 +36,16 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 
     // ToCode: to read a list of the exercises from the given file
     //use fscanf. when read the string (%s) and the integer (%d) the loop is executed.
-    while (fscanf(file,"%s %d", &exercise_list[count].exercise_name, &exercise_list[count].calories_burned_per_minute)==2) 
+    while (fscanf(file,"%s %d", &exercise_list[exercise_list_size].exercise_name, &exercise_list[exercise_list_size].calories_burned_per_minute)==2) 
 	{
     	
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
 			
-		count++;
+		exercise_list_size++;
     }
-    fclose(file);
-    
-	
-    for (i=0;i<count;i++) 
-    {
-        printf("문자: %s, 정수: %d\n", exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
-	}
-        
+    fclose(file);      
 }
 
 
@@ -71,20 +61,55 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 
 void inputExercise(HealthData* health_data) {
     int choice, duration, i;
+    int ex_choice;
     
-    // ToCode: to provide the options for the exercises to be selected
+	// ToCode: to provide the options for the exercises to be selected
     printf("The list of exercises: \n");
-
-
-    // ToCode: to enter the exercise to be chosen with exit option
-
- 
+	
+	for (i=0;i<exercise_list_size;i++)
+	{
+		printf("%i. %s\n",i+1,exercise_list[i].exercise_name);
+	}
+	printf("%d. Exit\n",exercise_list_size+1);
     
-    // To enter the duration of the exercise
-    printf("Enter the duration of the exercise (in min.): ");
-    scanf("%d", &duration);
-
+	// ToCode: to enter the exercise to be chosen with exit option
+	do{
+		
+		printf("choose the number:");
+		scanf("%d",&ex_choice);
+		
+		if(ex_choice<=exercise_list_size&&ex_choice>0)
+		{
+			//health_data exercise update
+			strcpy(health_data->exercises[health_data->exercise_count].exercise_name,exercise_list[ex_choice - 1].exercise_name);
+			
+			// To enter the duration of the exercise
+    		printf("Enter the duration of the exercise (in min.): ");
+    		scanf("%d", &duration);
+    		//storage calories per minute
+    		health_data->exercises[health_data->exercise_count].calories_burned_per_minute=exercise_list[ex_choice - 1].calories_burned_per_minute;
+    		//duration 
+			total_duration[ex_choice-1]+=duration;
+			
+			printf("%s %d",health_data->exercises[health_data->exercise_count].exercise_name,health_data->exercises[health_data->exercise_count].calories_burned_per_minute);
+			health_data->exercise_count++;
+			break;
+		}
+    	else if(ex_choice==exercise_list_size+1)
+    	{
+    		printf("program exit.");
+    		choice=4;
+    		break;
+		}
+		else
+		{
+			printf("[Error] Invalid option. \n");
+            printf("Please try again! \n");
+		}
+	}while(1);
+    
+	
     // ToCode: to enter the selected exercise and total calcories burned in the health data
-    
-
+    saveData("health_data.txt",health_data);
+	
 }
