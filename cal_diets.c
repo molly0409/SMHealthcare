@@ -27,20 +27,31 @@ static int diet_list_size = 0;
 */
 
 void loadDiets(const char* DIETFILEPATH) {
-    FILE *file = fopen(DIETFILEPATH, "r");
+    
+    int count=0;
+    int i=0;
+	
+	FILE *file = fopen(DIETFILEPATH, "r");
     if (file == NULL) {
         printf("There is no file for diets! \n");
         return;
     }
 
      // ToCode: to read a list of the diets from the given file
-    while () {
+    while (fscanf(file,"%s %d", &diet_list[diet_list_size].food_name, &diet_list[diet_list_size].calories_intake)==2) {
     	
         if (diet_list_size >= MAX_DIETS){
         	break;
 		}
+		
+		diet_list_size++;
     }
     fclose(file);
+    
+    for (i=0;i<diet_list_size;i++) 
+    {
+        printf("문자: %s, 정수: %d\n", diet_list[i].food_name, diet_list[i].calories_intake);
+	}
 }
 
 /*

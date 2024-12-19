@@ -20,14 +20,17 @@
 static int choice;
 
 int main() {
+	
 	// To initialize the health data object
     HealthData health_data = {0};
     
     // Tocode: to read the list of the exercises and diets
-    
+	loadExercises("exercises.txt");
+	
+	loadDiets("diets.txt");
 
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
-    do {
+    /*do {
     	if ( ){
             printf("You have consumed all your calories for today! \n");
 		} 
@@ -69,6 +72,6 @@ int main() {
         }
     } while ( );
 
-    return 0;
+    return 0;*/
 }
 

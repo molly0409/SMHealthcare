@@ -20,28 +20,42 @@
 // To declare the structure of the exercises
 static Exercise exercise_list[MAX_EXERCISES];
 int exercise_list_size = 0;
-
+//declare the structure of exercise tatal data
 
 /*
     description : read the information in "excercises.txt"
 */
 
 void loadExercises(const char* EXERCISEFILEPATH) {
-    FILE *file = fopen(EXERCISEFILEPATH, "r");
+    
+    int count=0;
+    int i=0;
+	
+	FILE *file = fopen(EXERCISEFILEPATH, "r");
     if (file == NULL) {
         printf("There is no file for exercises! \n");
         return;
     }
 
     // ToCode: to read a list of the exercises from the given file
-    while ( ) {
+    //use fscanf. when read the string (%s) and the integer (%d) the loop is executed.
+    while (fscanf(file,"%s %d", &exercise_list[count].exercise_name, &exercise_list[count].calories_burned_per_minute)==2) 
+	{
     	
         if (exercise_list_size >= MAX_EXERCISES){
         	break;
 		}
+			
+		count++;
     }
-
     fclose(file);
+    
+	
+    for (i=0;i<count;i++) 
+    {
+        printf("문자: %s, 정수: %d\n", exercise_list[i].exercise_name, exercise_list[i].calories_burned_per_minute);
+	}
+        
 }
 
 
