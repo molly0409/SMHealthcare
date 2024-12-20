@@ -21,7 +21,7 @@
 static Diet diet_list[MAX_DIETS];
 static int diet_list_size = 0;
 //use for exit
-extern int choice;
+
 /*
     description : read the information in "diets.txt"
 */
@@ -35,6 +35,7 @@ void loadDiets(const char* DIETFILEPATH) {
     }
 
      // ToCode: to read a list of the diets from the given file
+     //use fscanf. when read the string (%s) and the integer (%d) the loop is executed.
     while (fscanf(file,"%s %d", &diet_list[diet_list_size].food_name, &diet_list[diet_list_size].calories_intake)==2) {
     	
         if (diet_list_size >= MAX_DIETS){
@@ -79,10 +80,10 @@ void inputDiet(HealthData* health_data) {
 		{
 			// ToCode: to enter the selected diet in the health data
 			//health_data diet update
-			strcpy(health_data->diet[health_data->diet_count].food_name,diet_list[di_choice - 1].food_name);
+			strcpy(health_data->diet[health_data->diet_count].food_name,diet_list[di_choice-1].food_name);
 			
     		//storage calorie intake
-    		health_data->diet[health_data->diet_count].calories_intake=diet_list[di_choice - 1].calories_intake;
+    		health_data->diet[health_data->diet_count].calories_intake=diet_list[di_choice-1].calories_intake;
     		
 			//update total calories intake
 			health_data->total_calories_intake+=health_data->diet[health_data->diet_count].calories_intake;

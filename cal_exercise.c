@@ -82,14 +82,14 @@ void inputExercise(HealthData* health_data) {
 		if(ex_choice<=exercise_list_size&&ex_choice>0)
 		{
 			//health_data exercise update
-			strcpy(health_data->exercises[health_data->exercise_count].exercise_name,exercise_list[ex_choice - 1].exercise_name);
+			strcpy(health_data->exercises[health_data->exercise_count].exercise_name,exercise_list[ex_choice-1].exercise_name);
 			
 			// To enter the duration of the exercise
     		printf("Enter the duration of the exercise (in min.): ");
     		scanf("%d", &duration);
     		
 			//storage calories per minute
-    		health_data->exercises[health_data->exercise_count].calories_burned_per_minute=exercise_list[ex_choice - 1].calories_burned_per_minute;
+    		health_data->exercises[health_data->exercise_count].calories_burned_per_minute=exercise_list[ex_choice-1].calories_burned_per_minute;
     		
 			//duration 
 			total_duration[health_data->exercise_count]+=duration;

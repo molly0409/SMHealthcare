@@ -1,9 +1,11 @@
 [Exercises] 
-Total calories burned: 0 kcal
+yoga - 200 kcal
+Total calories burned: 200 kcal
 
 [Diets] 
-Total calories intake: 0 kcal
+chicken - 925 kcal
+Total calories intake: 925 kcal
 
 [Total] 
 Basal metabolic rate - 1300 kcal
-The remaining calories - -1300
+The remaining calories - -575
