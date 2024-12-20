@@ -18,6 +18,7 @@
 #define HEALTHFILEPATH "health_data.txt"
 
 static int choice;
+//use updating duration for each exercise
 int total_duration[MAX_EXERCISES]={0};
 
 int main() {
@@ -65,12 +66,13 @@ int main() {
                 break;
                 
             case 4:
-            	
+            	//want to exit the system
     			printf("Exit the system.\n");
     			printf("=======================================================================\n");
                 break;
                 
             default:
+            	//choose wrong number
                 printf("[Error] Invalid option. \n");
                 printf("Please try again! \n");
         }

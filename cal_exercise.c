@@ -20,7 +20,7 @@
 // To declare the structure of the exercises
 static Exercise exercise_list[MAX_EXERCISES];
 int exercise_list_size = 0;
-//declare the structure of exercise tatal data
+//declare the structure of exercise total data
 extern int total_duration[MAX_EXERCISES];
 
 /*
@@ -61,7 +61,8 @@ void loadExercises(const char* EXERCISEFILEPATH) {
 */
 
 void inputExercise(HealthData* health_data) {
-    int ex_choice, duration, i;
+    //exercise choice 
+	int ex_choice, duration, i;
     
     
 	// ToCode: to provide the options for the exercises to be selected
@@ -78,7 +79,7 @@ void inputExercise(HealthData* health_data) {
 		
 		printf("choose the number:");
 		scanf("%d",&ex_choice);
-		
+		//choice is one of exercises
 		if(ex_choice<=exercise_list_size&&ex_choice>0)
 		{
 			//health_data exercise update
@@ -99,11 +100,13 @@ void inputExercise(HealthData* health_data) {
 			health_data->exercise_count++;
 			break;
 		}
+		//choice is "exit"
     	else if(ex_choice==exercise_list_size+1)
     	{
     		printf("exercise exit.go to main.\n");
     		break;
 		}
+		//choice is wrong number
 		else
 		{
 			printf("[Error] Invalid option. \n");

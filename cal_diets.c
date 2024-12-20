@@ -58,7 +58,7 @@ void loadDiets(const char* DIETFILEPATH) {
 */
 
 void inputDiet(HealthData* health_data) {
-    
+    //diet choice
 	int di_choice,i;
     
 	// ToCode: to provide the options for the diets to be selected
@@ -75,7 +75,7 @@ void inputDiet(HealthData* health_data) {
 		
 		printf("choose the number:");
 		scanf("%d",&di_choice);
-		
+		//choice is one of foods
 		if(di_choice<=diet_list_size&&di_choice>0)
 		{
 			// ToCode: to enter the selected diet in the health data
@@ -90,11 +90,13 @@ void inputDiet(HealthData* health_data) {
 			health_data->diet_count++;
 			break;
 		}
+		//choice is "exit"
     	else if(di_choice==diet_list_size+1)
     	{
     		printf("diet exit.go to main\n");
     		break;
 		}
+		//wrong choice number
 		else
 		{
 			printf("[Error] Invalid option. \n");
