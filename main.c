@@ -35,6 +35,7 @@ int main() {
     do {
     	if (health_data.total_calories_intake-BASAL_METABOLIC_RATE-health_data.total_calories_burned==0){
             printf("You have consumed all your calories for today! \n");
+            break;
 		} 
 		else{
 			printf("\n=======================================================================\n");
@@ -73,7 +74,7 @@ int main() {
                 printf("Please try again! \n");
         }
     } while (choice!=4);
-
+	//final update: health_data.txt
     return 0;
 }
 

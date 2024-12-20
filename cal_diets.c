@@ -92,7 +92,7 @@ void inputDiet(HealthData* health_data) {
 		}
     	else if(di_choice==diet_list_size+1)
     	{
-    		printf("program exit.\n");
+    		printf("diet exit.go to main\n");
     		choice=4;
     		break;
 		}

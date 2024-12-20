@@ -98,8 +98,7 @@ void inputExercise(HealthData* health_data) {
 		}
     	else if(ex_choice==exercise_list_size+1)
     	{
-    		printf("program exit.\n");
-    		choice=4;
+    		printf("exercise exit.go to main.\n");
     		break;
 		}
 		else

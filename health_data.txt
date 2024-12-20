@@ -1,10 +1,10 @@
 [Exercises] 
-swimming - 360 kcal
-Total calories burned: 360 kcal
+riding - 200 kcal
+Total calories burned: 200 kcal
 [Diets] 
+rice - 600 kcal
 pizza - 900 kcal
-tteokbokki - 615 kcal
-Total calories intake: 1515 kcal
+Total calories intake: 1500 kcal
 [Total] 
 Basal metabolic rate - 1300 kcal
-The remaining calories - -145
+The remaining calories - 0
