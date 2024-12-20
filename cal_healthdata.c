@@ -78,8 +78,8 @@ void printHealthData(const HealthData* health_data) {
 	printf("=========================== History of Exercise =======================\n");
 	for(i=0;i<health_data->exercise_count;i++){
 		printf("Exercise: %s, Calories burned : %d kcal\n",
-		health_data->exercises[i].exercise_name,
-		health_data->exercises[i].calories_burned_per_minute * total_duration[i]);
+			health_data->exercises[i].exercise_name,
+			health_data->exercises[i].calories_burned_per_minute * total_duration[i]);
 	}
     printf("=======================================================================\n");
 

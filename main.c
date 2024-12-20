@@ -52,11 +52,13 @@ int main() {
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
+            	//exercise+duration data update: health_data.txt
             	inputExercise(&health_data);
 				break;
                 
             case 2:
-            	inputDiet(&health_data);
+            	//select food and update: health_data.txt
+				inputDiet(&health_data);
                 break;
                 
             case 3:
@@ -74,7 +76,7 @@ int main() {
                 printf("Please try again! \n");
         }
     } while (choice!=4);
-	//final update: health_data.txt
+	
     return 0;
 }
 

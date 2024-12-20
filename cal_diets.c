@@ -58,8 +58,7 @@ void loadDiets(const char* DIETFILEPATH) {
 
 void inputDiet(HealthData* health_data) {
     
-	int choice,i;
-    int di_choice;
+	int di_choice,i;
     
 	// ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
@@ -93,7 +92,6 @@ void inputDiet(HealthData* health_data) {
     	else if(di_choice==diet_list_size+1)
     	{
     		printf("diet exit.go to main\n");
-    		choice=4;
     		break;
 		}
 		else

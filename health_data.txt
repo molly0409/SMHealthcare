@@ -1,10 +1,14 @@
 [Exercises] 
-riding - 200 kcal
-Total calories burned: 200 kcal
+walking - 120 kcal
+riding - 100 kcal
+swimming - 360 kcal
+swimming - 720 kcal
+Total calories burned: 1300 kcal
 [Diets] 
+pizza - 900 kcal
 rice - 600 kcal
 pizza - 900 kcal
-Total calories intake: 1500 kcal
+Total calories intake: 2400 kcal
 [Total] 
 Basal metabolic rate - 1300 kcal
-The remaining calories - 0
+The remaining calories - -200
