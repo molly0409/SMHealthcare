@@ -22,6 +22,7 @@ static Exercise exercise_list[MAX_EXERCISES];
 int exercise_list_size = 0;
 //declare the structure of exercise tatal data
 extern int total_duration[MAX_EXERCISES];
+extern int choice;
 /*
     description : read the information in "excercises.txt"
 */
@@ -90,12 +91,14 @@ void inputExercise(HealthData* health_data) {
     		health_data->exercises[health_data->exercise_count].calories_burned_per_minute=exercise_list[ex_choice - 1].calories_burned_per_minute;
     		//duration 
 			total_duration[health_data->exercise_count]+=duration;
+			//update total calories burned
+			health_data->total_calories_burned+=health_data->exercises[health_data->exercise_count].calories_burned_per_minute * total_duration[health_data->exercise_count];
 			health_data->exercise_count++;
 			break;
 		}
     	else if(ex_choice==exercise_list_size+1)
     	{
-    		printf("program exit.");
+    		printf("program exit.\n");
     		choice=4;
     		break;
 		}

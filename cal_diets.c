@@ -20,8 +20,8 @@
 // list of diets 
 static Diet diet_list[MAX_DIETS];
 static int diet_list_size = 0;
-
-
+//use for exit
+extern int choice;
 /*
     description : read the information in "diets.txt"
 */
@@ -57,25 +57,55 @@ void loadDiets(const char* DIETFILEPATH) {
 */
 
 void inputDiet(HealthData* health_data) {
-    int choice, i;
     
-    // ToCode: to provide the options for the diets to be selected
+	int choice,i;
+    int di_choice;
+    
+	// ToCode: to provide the options for the diets to be selected
     printf("The list of diets:\n");
     
 	for (i=0;i<diet_list_size;i++)
 	{
 		printf("%i. %s\n",i+1,diet_list[i].food_name);
 	}
-	printf("%d. Exit\n",diet_list_size);
+	printf("%d. Exit\n",diet_list_size+1);
     
 	// ToCode: to enter the diet to be chosen with exit option
-    
-
-    // ToCode: to enter the selected diet in the health data
+    do{
+		
+		printf("choose the number:");
+		scanf("%d",&di_choice);
+		
+		if(di_choice<=diet_list_size&&di_choice>0)
+		{
+			// ToCode: to enter the selected diet in the health data
+			//health_data diet update
+			strcpy(health_data->diet[health_data->diet_count].food_name,diet_list[di_choice - 1].food_name);
+			
+    		//storage calorie intake
+    		health_data->diet[health_data->diet_count].calories_intake=diet_list[di_choice - 1].calories_intake;
+    		
+			//update total calories intake
+			health_data->total_calories_intake+=health_data->diet[health_data->diet_count].calories_intake;
+			health_data->diet_count++;
+			break;
+		}
+    	else if(di_choice==diet_list_size+1)
+    	{
+    		printf("program exit.\n");
+    		choice=4;
+    		break;
+		}
+		else
+		{
+			printf("[Error] Invalid option. \n");
+            printf("Please try again! \n");
+		}
+	}while(1);
     
 
     // ToCode: to enter the total calories intake in the health data
-
+	saveData("health_data.txt",health_data);
 
 }
 

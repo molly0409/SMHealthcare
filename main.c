@@ -31,7 +31,7 @@ int main() {
 	loadDiets("diets.txt");
 	
 	inputExercise(&health_data);
-
+	inputDiet(&health_data);
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
     /*do {
     	if ( ){
