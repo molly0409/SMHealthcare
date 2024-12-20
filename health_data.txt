@@ -1,8 +1,10 @@
 [Exercises] 
-swimming - 240 kcal
-Total calories burned: 240 kcal
+swimming - 360 kcal
+Total calories burned: 360 kcal
 [Diets] 
-chicken - 925 kcal
-Total calories intake: 925 kcal
+pizza - 900 kcal
+tteokbokki - 615 kcal
+Total calories intake: 1515 kcal
 [Total] 
-Basal metabolic rate - 1300 kcalThe remaining calories - -615
+Basal metabolic rate - 1300 kcal
+The remaining calories - -145

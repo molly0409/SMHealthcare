@@ -27,14 +27,13 @@ int main() {
     
     // Tocode: to read the list of the exercises and diets
 	loadExercises("exercises.txt");
-	
 	loadDiets("diets.txt");
 	
-	inputExercise(&health_data);
-	inputDiet(&health_data);
+	
+	
     // ToCode: to run the "Healthcare Management Systems" until all calories are used up or the user wants to exit the system
-    /*do {
-    	if ( ){
+    do {
+    	if (health_data.total_calories_intake-BASAL_METABOLIC_RATE-health_data.total_calories_burned==0){
             printf("You have consumed all your calories for today! \n");
 		} 
 		else{
@@ -52,15 +51,15 @@ int main() {
 		// ToCode: to run the sysmtem based on the user's choice
         switch (choice) {
             case 1:
-            	inputExercise()
+            	inputExercise(&health_data);
 				break;
                 
             case 2:
-            	inputDiet()
+            	inputDiet(&health_data);
                 break;
                 
             case 3:
-            	printHealthData()
+            	printHealthData(&health_data);
                 break;
                 
             case 4:
@@ -75,6 +74,6 @@ int main() {
         }
     } while (choice!=4);
 
-    return 0;*/
+    return 0;
 }
 
